@@ -44,7 +44,7 @@ function run(cities){
 			var text = JSON.parse(body);	
 			console.log(text);
 			
-			tweet = cities[i][0] + ' @' + UNIXToRead(text.currently.time) + '\n\n' 
+			tweet = cities[i][0] + ' ' + emoji.get('mantelpiece_clock') + ' ' + UNIXToRead(text.currently.time) + '\n\n' 
 					+ switching(text) + ' ' + text.currently.icon.capFirstLetter() + '\n'
 					+ emoji.get('thermometer') + ' ' + text.currently.temperature + ' ' + String.fromCharCode(176) + 'F\n'
 					+ emoji.get('wind_blowing_face') + ' ' + text.currently.windSpeed + ' Miles/hr\n'
