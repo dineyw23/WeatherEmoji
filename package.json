@@ -1,0 +1,25 @@
+{
+  "name": "weather-emoji",
+  "version": "1.0.0",
+  "description": "Twitter weather app using emojis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dineyw23/WeatherEmoji.git"
+  },
+  "author": "Diney Wankhede",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dineyw23/WeatherEmoji/issues"
+  },
+  "homepage": "https://github.com/dineyw23/WeatherEmoji#readme",
+  "dependencies": {
+    "geo-loc-utils": "0.0.2",
+    "node-emoji": "^1.5.1",
+    "twit": "^2.2.5"
+  }
+}
