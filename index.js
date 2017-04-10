@@ -28,7 +28,9 @@ function start(){
 		['Mountain View', '37.386051, -122.083855'],
 		['Palo Alto', '37.468319, -122.143936'],
 		['San Jose', '37.279518,-121.867905'],
-		['Hayward', '37.668819, -122.080795']
+		['Hayward', '37.668819, -122.080795'],
+		['SF Airport','37.654656,-122.40774980000003'],
+		['Berkley','37.8716667,-122.2716667']
 	];
 	run(cities);
 }
@@ -41,15 +43,13 @@ function run(cities){
 		function(error, response, body){
 			var text = JSON.parse(body);	
 			console.log(text);
-			//var date = new Date(text.currently.time*1000 - (28800000));
-			//var minutes = "0" + date.getMinutes();
-			//var formattedTime = date.getHours() + ':' + minutes.substr(-2);
-			tweet = cities[i][0] + ' @ ' + UNIXToRead(text.currently.time) + '\n\n' 
+			
+			tweet = cities[i][0] + ' @' + UNIXToRead(text.currently.time) + '\n\n' 
 					+ switching(text) + ' ' + text.currently.icon.capFirstLetter() + '\n'
 					+ emoji.get('thermometer') + ' ' + text.currently.temperature + ' ' + String.fromCharCode(176) + 'F\n'
 					+ emoji.get('wind_blowing_face') + ' ' + text.currently.windSpeed + ' Miles/hr\n'
 					+ emoji.get('telescope') + ' ' + text.currently.visibility + ' Miles\n'
-					+ emoji.get('sweat_smile') + ' ' + Math.round(text.currently.humidity * 100) + ' % Humid\n';
+					+ emoji.get('sweat_smile') + ' ' + Math.round(text.currently.humidity * 100) + '% Humid\n';
 
 			var content = {
 				status: tweet
@@ -109,4 +109,4 @@ function switching(text){
 	return icon;
 }
 start();
-setInterval(start,60*60*1000);
+setInterval(start,2*60*60*1000);
