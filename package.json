@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/dineyw23/WeatherEmoji#readme",
   "dependencies": {
-    "geo-loc-utils": "0.0.2",
     "node-emoji": "^1.5.1",
+    "request": "^2.81.0",
     "twit": "^2.2.5"
   }
 }
