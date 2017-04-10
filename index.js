@@ -47,9 +47,9 @@ function run(cities){
 			tweet = cities[i][0] + ' @ ' + UNIXToRead(text.currently.time) + '\n\n' 
 					+ switching(text) + ' ' + text.currently.icon.capFirstLetter() + '\n'
 					+ emoji.get('thermometer') + ' ' + text.currently.temperature + ' ' + String.fromCharCode(176) + 'F\n'
-					+ emoji.get('wind_blowing_face') + ' ' + text.currently.windSpeed + ' M/hr\n'
+					+ emoji.get('wind_blowing_face') + ' ' + text.currently.windSpeed + ' Miles/hr\n'
 					+ emoji.get('telescope') + ' ' + text.currently.visibility + ' Miles\n'
-					+ emoji.get('sweat_smile') + ' ' + text.currently.humidity * 100 + '% Humid\n';
+					+ emoji.get('sweat_smile') + ' ' + Math.round(text.currently.humidity * 100) + ' % Humid\n';
 
 			var content = {
 				status: tweet
