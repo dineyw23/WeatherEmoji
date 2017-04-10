@@ -41,12 +41,15 @@ function run(cities){
 		function(error, response, body){
 			var text = JSON.parse(body);	
 			console.log(text);
-			var date = new Date(text.currently.time*1000);
-			var minutes = "0" + date.getMinutes();
-			var formattedTime = date.getHours() + ':' + minutes.substr(-2);
-			tweet = cities[i][0] + ' @ ' + formattedTime + '\n\n' 
+			//var date = new Date(text.currently.time*1000 - (28800000));
+			//var minutes = "0" + date.getMinutes();
+			//var formattedTime = date.getHours() + ':' + minutes.substr(-2);
+			tweet = cities[i][0] + ' @ ' + UNIXToRead(text.currently.time) + '\n\n' 
 					+ switching(text) + ' ' + text.currently.icon.capFirstLetter() + '\n'
-					+ emoji.get('thermometer') + ' ' + text.currently.temperature;
+					+ emoji.get('thermometer') + ' ' + text.currently.temperature + '&#8451;F\n'
+					+ emoji.get('wind_blowing_face') + ' ' + text.currently.windSpeed + 'Miles/Hr\n'
+					+ emoji.get('telescope') + text.currently.visibility + 'Miles\n';
+					+ emoji.get('sweat_smile') + text.currently.humidity * 100 + '% Humid\n';
 
 			var content = {
 				status: tweet
@@ -56,6 +59,13 @@ function run(cities){
 			})
 		});
 	}
+}
+
+function UNIXToRead(unix){
+	var date = new Date(unix*1000 - (28800000));
+	var minutes = "0" + date.getMinutes();
+	var formattedTime = date.getHours() + ':' + minutes.substr(-2);
+	return formattedTime;
 }
 
 function switching(text){
@@ -98,5 +108,5 @@ function switching(text){
 
 	return icon;
 }
-
+start();
 setInterval(start,60*60*1000);
