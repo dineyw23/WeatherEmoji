@@ -32,7 +32,7 @@ function start(){
 	];
 	run(cities);
 }
-
+//Take care of concatenation later
 function run(cities){
 	var tweet = '';
 	for(let i = 0; i < cities.length; ++i){
@@ -44,9 +44,7 @@ function run(cities){
 			var date = new Date(text.currently.time*1000);
 			var minutes = "0" + date.getMinutes();
 			var formattedTime = date.getHours() + ':' + minutes.substr(-2);
-			console.log(formattedTime)
-			tweet = cities[i][0] + '\n' 
-				    + emoji.get('alarm_clock') + 'Weather @ ' + formattedTime + '\n' 
+			tweet = cities[i][0] + ' @ ' + formattedTime + '\n\n' 
 					+ switching(text) + ' ' + text.currently.icon.capFirstLetter() + '\n'
 					+ emoji.get('thermometer') + ' ' + text.currently.temperature;
 
