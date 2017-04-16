@@ -108,5 +108,5 @@ function switching(text){
 
 	return icon;
 }
-start();
-setInterval(start,2*60*60*1000);
+//start();
+setInterval(start,3*60*60*1000);
