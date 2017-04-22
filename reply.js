@@ -4,9 +4,11 @@ var emoji = require('node-emoji');
 var child = require('child_process');
 var main = require('./index.js');
 
+/*
 var process = {
 	env: require('./config.js') 
 };
+*/
 
 String.prototype.capFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
