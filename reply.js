@@ -2,8 +2,8 @@ var request = require('request');
 var twit = require('twit');
 var emoji = require('node-emoji');
 var child = require('child_process');
-var main = require('./index.js');
 
+exports.track = track;
 /*
 var process = {
 	env: require('./config.js') 
@@ -23,8 +23,8 @@ var Twitter = new twit(
 });
 
 function track(){
+
 	var stream = Twitter.stream('statuses/filter', {track : '@WeatherEmojiBot'})
-	
 	stream.on('tweet', function(tweet){
 		callThis(tweet);
 	});
@@ -35,6 +35,7 @@ function track(){
 }
 
 function callThis(tweetOld){
+	var main = require('./index.js');
 		var cities = [
 		['San Francisco', '37.8267,-122.4233'],
 		['Oakland', '37.804363,-122.271111'],
@@ -138,7 +139,6 @@ function callThis(tweetOld){
 			console.log(list);
 		})
 	}
-
 }
 
 track();

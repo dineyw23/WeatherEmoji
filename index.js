@@ -38,7 +38,7 @@ function start(){
 //Take care of concatenation later
 function run(cities){
 	var tweet = '';
-	for(let i = 0; i < 1; ++i){
+	for(let i = 0; i < cities.length; ++i){
 		request('https://api.darksky.net/forecast/' + process.env.API_KEY + '/' + cities[i][1] 
 			+'?exclude=[minutely,hourly,alerts,flags]',
 		function(error, response, body){
@@ -112,12 +112,13 @@ function switching(text){
 
 exports.switching = switching;
 exports.UNIXToRead = UNIXToRead;
+
 function Track() {
 	var worker2 = child.fork('reply.js');
-	worker2.on('close', function (code) {
-      console.log('Child process exited with code ' + code);
-	});	
+		worker2.on('close', function (code) {
+  		console.log('Child process exited with code ' + code);
+	});		
 }
 
 Track();
-//setInterval(start,60 * 1000);
+setInterval(start, 24 * 60 * 60 * 1000);
