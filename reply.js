@@ -107,7 +107,7 @@ function callThis(tweetOld){
 						+ emoji.get('telescope') + ' ' + text.currently.visibility + ' Miles\n'
 						+ emoji.get('sweat_smile') + ' ' + Math.round(text.currently.humidity * 100) + '% Humid\n';
 
-				let content = {
+				var content = {
 					status: tweet,
 					in_reply_to_status_id: tweetOld.id_str
 				}
@@ -124,13 +124,13 @@ function callThis(tweetOld){
 	
 	if(flag === 0){
 
-		let list = '@' + tweetOld.user.screen_name + '\n' 
+		var list = '@' + tweetOld.user.screen_name + '\n' 
 					+'I serve Bay Area:' + '\n';
-		for(let j = 0; j < 10; j++){
+		for(var j = 0; j < 10; j++){
 			list = list + cities[j][0] + '\n';
 		}
 
-		let notice = {
+		var notice = {
 			status : list,
 			in_reply_to_status_id: tweetOld.id_str
 		}
