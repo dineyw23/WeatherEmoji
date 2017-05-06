@@ -38,7 +38,7 @@ function start(){
 //Take care of concatenation later
 function run(cities){
 	var tweet = '';
-	for(let i = 0; i < cities.length; ++i){
+	for(var i = 0; i < cities.length; ++i){
 		request('https://api.darksky.net/forecast/' + process.env.API_KEY + '/' + cities[i][1] 
 			+'?exclude=[minutely,hourly,alerts,flags]',
 		function(error, response, body){
